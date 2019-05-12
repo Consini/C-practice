@@ -1,5 +1,4 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-#define _CRT_SECURE_NO_WARNINGS 1
 #if 0
 //1.模拟实现strcpy     char *strcpy( char *strDestination, const char *strSource );
 //把strSource 拷贝到strDestination，返回strDestination
@@ -24,6 +23,7 @@ int main()
 	system("pause");
 	return 0;
 }
+
 
 
 //2.模拟实现strcat     char *strcat(char *strDestination, const char *strSource);
@@ -56,20 +56,28 @@ int main()
 #include<stdlib.h>
 #include<stdio.h>
 #include<string.h>
-char My_strstr( char *str, char *strc)
+#include <assert.h>
+char* My_strstr(const char *str,const char *strc)
 {
-	while (*str != '\0'){
-		while (*strc != '\0'){
-			if (*str == *strc){
-				str++;
-				strc++;
-			}
-			else{
+	assert(str != NULL);
+	assert(strc != NULL);
+	if ('\0' == *strc){
+		return (char*)str;
+	}
+	while ('\0' != *str){
+		const char *s = str;
+		const char *c = strc;
+		while ('\0' != *c){
+			if (*s != *c){
 				break;
 			}
+			else{
+				s++;
+				c++;
+			}
 		}
-		if (*strc == '\0'){
-			return *str;
+		if ('\0' == *c){
+			return (char*)str;
 		}
 		str++;
 	}
@@ -77,10 +85,9 @@ char My_strstr( char *str, char *strc)
 }
 int main()
 {
-    char str1[] = "ABCDEFG";
-	char str2[] = "CDE";
-	My_strstr(str1, str2);
-	printf("%s\n", str1);
+    const char* str1 = "ABCDEFG";
+	const char* str2 = "CDE";
+	printf("%s\n", My_strstr(str1, str2));
 	system("pause");
 	return 0;
 }
@@ -118,14 +125,47 @@ int main()
 //比较两个字符串大小，string1大返回>0,string1小于string2返回<0,相等返回0
 #include<stdlib.h>
 #include<stdio.h>
+#include<assert.h>
+int My_strcmp(const char* str, const char *strc)
+{
+	assert(str != NULL && NULL != strc);
+	while (*str != '\0' || '\0' != *strc){
+		if (*str > *strc){
+			return 1;
+		}
+		else{
+			return -1;
+		}
+		str++;
+		strc++;
+	}
+	if (*str == '\0' && '\0' == *strc){
+		return 0;
+	}
+}
 int main()
 {
 	const char *str = "ABCDEFG";
-	const char *strc = "zbxw";
+	const char *strc = "ABCDG";
+	int ret = My_strcmp(str, strc);
+	switch (ret){
+	case 0:
+		printf("两个字符串相等\n");
+		break;
+	case 1:
+		printf("字符串str大于字符串strc\n");
+		break;
+	case -1:
+		printf("字符串str小于字符串strc\n");
+		break;
+	default:
+		printf("结果错误\n");
+		break;
+	}
 	system("pause");
 	return 0;
 }
-#endif
+
 
 
 
@@ -136,7 +176,7 @@ int main()
 #include<stdlib.h>
 #include<stdio.h>
 #include<assert.h>
-void My_memcpy(char* str,const char *strc, int n)
+void *My_memcpy(char* str,const char *strc, int n)
 {
 	assert(*str != NULL && *strc != NULL);
 	while (n)
@@ -162,39 +202,44 @@ int main()
 	system("pause");
 	return 0;
 }
+#endif
 
 
 
-#if 0
 //7.void *memmove( void *dest, const void *src, size_t count );
 //从src的起始位置移动count个字节目标到dest的位置中，返回指向dest的指针,保证正确性
 #include<stdlib.h>
 #include<stdio.h>
 #include<assert.h>
-void My_memmove(char *str, const char* strc, int count)
+void *My_memmove(char *dest, const char* src, int count)
 {
-	assert(*str != NULL && *strc != NULL);
-	if (str <= strc && str >= strc + count){//内存不冲突
+	assert(dest != NULL && src != NULL);
+	char *pd = dest;
+	const char *ps = src;
+	/*if (pd <= ps && pd >= ps + count){*///内存不冲突
+	if (pd > ps){
 		while (count--){
-			*str++ = *strc++;
+			*pd++ = *ps++;
 		}
-		return str;
 	}
 	else{
 		while (count--){
-			*(str + count) = *(strc + count);
+			*(pd + count) = *(ps + count);
 		}
 	}
+	return dest;
 }
 int main()
 {
-	char str1[] = "ABCDEFG";
+	char str1[] = "ABCDEFGdwidh";
 	const char *str2 = "Attitude to life!";
-	int n = 10;
+	int n = 9;
 	My_memmove(str1, str2, n);
 	printf("%s\n", str1);
 	system("pause");
 	return 0;
 }
 
-#endif
+
+
+
