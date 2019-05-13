@@ -1,11 +1,10 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-#if 0
 //1.一个数组中只有两个数字是出现一次，其他所有数字都出现了两次。找出这两个只出现一次的数字，编程实现。
 //void qsort( void *buf, size_t num, size_t size, int (*compare)(const void *, const void *) );
 //功能： 对buf 指向的数据(包含num 项, 每项的大小为size)进行快速排序。
 //如果函数compare 的第一个参数小于第二个参数，返回负值；
 //如果等于返回零值；如果大于返回正值。函数对buf 指向的数据按非降序排序。
-
+#if 0
 #include<stdio.h>
 #include<stdlib.h>
 int compare(const void *valuel1,const void *valuel2)
@@ -89,11 +88,20 @@ int Fun(int k)
 }
 int main()
 {
-	int n = 0;
-	int num = 0; 
-	scanf("%d", &n);
-	num = Fun(n);
-	printf("%d\n", num);
+	int money = 0;//钱数
+	int total = 0; //喝的饮料总数
+	int empty = 0;//空瓶子数
+	scanf("%d", &money);
+	total = money;
+	empty = money;
+	while (empty > 1)
+	{
+		total = total + empty / 2;
+		empty = empty / 2 + empty % 2;
+	}
+	printf("%d\n", total);
+	//num = Fun(n);
+	//printf("%d\n", num);
 	system("pause");
 	return 0;
 }
@@ -102,8 +110,6 @@ int main()
 
 
 
-
-#if 0
 //3.模拟实现strcpy
 //Copy a string.
 //char *strcpy( char *strDestination, const char *strSource );
@@ -132,7 +138,7 @@ int main()
 }
 
 
-
+#if 0
 //4.模拟实现strcat
 //Append a string.
 //char *strcat(char *strDestination, const char *strSource);
