@@ -28,7 +28,7 @@ int main()
 	system("pause");
 	return 0;
 }
-
+#endif
 
 
 //2.模拟实现strcat     char *strcat(char *strDestination, const char *strSource);
@@ -59,7 +59,7 @@ char *Mystrncat(char *strDestination, const char *strSource,int n)
 int main()
 {
 	char strD[20] = "HELLO ";
-	char strS[] = "WORLD!";
+	char *strS = "WORLD!";
 	//printf("%s\n", Mystrcat(strD, strS));
 	printf("%s\n", Mystrncat(strD, strS,3));
 	system("pause");
@@ -68,7 +68,7 @@ int main()
 
 
 
-
+#if 0
 //3.char *strstr( const char *string, const char *strCharSet );
 //在string查看是否有字符串strCharSet，有则从首次发现strCharSet处返回string，没有返回NULL，
 //若strCharSet长度为0，返回string
