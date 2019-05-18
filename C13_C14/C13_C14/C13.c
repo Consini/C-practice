@@ -31,6 +31,7 @@ void Print(int *arr, int row, int col)
 			printf("%d ", arr[i*col + j]);
 		}
 	}
+	printf("\n");
 }
 int main()
 {
@@ -38,8 +39,8 @@ int main()
 	int k = 0;
 	int ret = 0;
 	Print((int *)a, 3, 3);
-	scanf("%d", &k);
-	ret = Find(a, k);
+	//scanf("%d", &k);
+	ret = Find(a, 5);
 	if (ret){
 		printf("Find the number!\n");
 	}
@@ -96,7 +97,7 @@ int main()
 	system("pause");
 	return 0;
 }
-#endif
+
 
 //调整数组使奇数全部都位于偶数前面。 
 #include<stdio.h>
@@ -136,7 +137,7 @@ int main()
 	system("pause");
 	return 0;
 }
-
+#endif
 
 
 

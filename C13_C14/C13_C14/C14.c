@@ -1,7 +1,4 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-
-
-
 #if 0
 //ABCD\0     BCDA   CDAB
 //实现一个函数，可以左旋字符串中的k个字符。 
@@ -83,11 +80,11 @@ int main()
 	system("pause");
 	return 0;
 }
+#endif
 
 
 
-
-
+#if 0
 //判断一个字符串是否为另外一个字符串旋转之后的字符串。 
 //给定s1 =AABCD和s2 = BCDAA，返回1 
 //给定s1 = abcd和s2 = ACBD，返回0
@@ -146,29 +143,30 @@ int main()
 }
 
 
+#endif
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
 #include<assert.h>
-void Reverse(char* l, char* r)
-{
-	while (l < r){
-		char tmp = *r;
-		*r = *l;
-		*l = tmp;
-		l++;
-		r--;
-	}
-	return;
-}
-void LeftMove(char *s1,int k)
-{
-	int len = strlen(s1);
-	Reverse(s1, s1+k - 1);
-	Reverse(s1 + k, s1 + len - 1);
-	Reverse(s1, s1 + len - 1);
-	return;
-}
+//void Reverse(char* l, char* r)
+//{
+//	while (l < r){
+//		char tmp = *r;
+//		*r = *l;
+//		*l = tmp;
+//		l++;
+//		r--;
+//	}
+//	return;
+//}
+//void LeftMove(char *s1,int k)
+//{
+//	int len = strlen(s1);
+//	Reverse(s1, s1+k - 1);
+//	Reverse(s1 + k, s1 + len - 1);
+//	Reverse(s1, s1 + len - 1);
+//	return;
+//}
 int main()
 {
 	char s1[20] = "ABCDEF";
@@ -195,4 +193,3 @@ int main()
 	system("pause");
 	return 0;
 }
-#endif
