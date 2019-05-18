@@ -2,6 +2,15 @@
 #include<stdio.h>
 #include<windows.h>
 #include<stdlib.h>
+int main()
+{
+
+	system("pause");
+	return 0;
+}
+
+
+#if 0
 int main(int argc, char * argv[])
 {
 
@@ -44,7 +53,7 @@ int main(int argc, char * argv[])
 	system("pause");
 	return 0;
 }
-
+#endif
 
 #if 0
 int cmp(const void *x,const void *y)
