@@ -5,6 +5,7 @@
 //如果函数compare 的第一个参数小于第二个参数，返回负值；
 //如果等于返回零值；如果大于返回正值。函数对buf 指向的数据按非降序排序。
 #if 0
+#endif
 #include<stdio.h>
 #include<stdlib.h>
 int compare(const void *valuel1,const void *valuel2)
@@ -70,7 +71,7 @@ int main()
 }
 
 
-
+#if 0
 //2.喝汽水，1瓶汽水1元，2个空瓶可以换一瓶汽水，给20元，可以多少汽水。
 #include<stdio.h>
 #include<stdlib.h>
@@ -88,24 +89,31 @@ int Fun(int k)
 }
 int main()
 {
-	int money = 0;//钱数
-	int total = 0; //喝的饮料总数
-	int empty = 0;//空瓶子数
-	scanf("%d", &money);
-	total = money;
-	empty = money;
-	while (empty > 1)
-	{
-		total = total + empty / 2;
-		empty = empty / 2 + empty % 2;
-	}
-	printf("%d\n", total);
-	//num = Fun(n);
-	//printf("%d\n", num);
+	int n = 0;
+	scanf("%d", &n);
+	printf("%d\n", 2 * n - 1);
 	system("pause");
 	return 0;
 }
-#endif
+//int main()
+//{
+//	//int money = 0;//钱数
+//	//int total = 0; //喝的饮料总数
+//	//int empty = 0;//空瓶子数
+//	//scanf("%d", &money);
+//	//total = money;
+//	//empty = money;
+//	//while (empty > 1)
+//	//{
+//	//	total = total + empty / 2;
+//	//	empty = empty / 2 + empty % 2;
+//	//}
+//	//printf("%d\n", total);
+//    printf("%d\n", Fun(20));
+//	system("pause");
+//	return 0;
+//}
+
 
 
 
@@ -138,7 +146,7 @@ int main()
 }
 
 
-#if 0
+
 //4.模拟实现strcat
 //Append a string.
 //char *strcat(char *strDestination, const char *strSource);
@@ -164,4 +172,3 @@ int main()
 	return 0;
 }
 #endif
-
