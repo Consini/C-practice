@@ -57,8 +57,8 @@ int main()
 	const char *string = "woruild!";
 	//Mystrncpy(arr, str, 4);
 	//Mystrncat(arr, str, 4);
-	//Mystrncat(arr, arr, 4);
-	//printf("%s\n", arr);
+	Mystrncat(arr, arr, 4);
+	printf("%s\n", arr);
 	//int ret = Mystrncmp(str, string, 3);
 	//printf("%d\n", ret);
 	system("pause");
