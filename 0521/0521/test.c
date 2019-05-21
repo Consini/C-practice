@@ -1,4 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS 1
+
+#if 0
 #include<stdio.h>
 #include<stdlib.h>
 int Order(int arr[], int len)
@@ -21,7 +23,7 @@ int main()
 	system("pause");
 	return 0;
 }
-#if 0
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<assert.h>
