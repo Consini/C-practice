@@ -2,6 +2,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#if 0
 void Print_int(int arr[], int len)
 {
 	for (int i = 0; i < len; i++)
@@ -66,22 +67,23 @@ void bubble(void *arr, int count, int size, int cmp(void *, void *))
 		}
 	}
 }
-//int main()
-//{
+#endif
+int main()
+{
 
 
-	//int a[3][4] = { 0 };
-	//printf("%d\n", sizeof(a));//48  3*4*4
-	//printf("%d\n", sizeof(a[0][0]));//4  第一个数组的第一个元素
-	//printf("%d\n", sizeof(a[0]));//16   第一个数组    
-	//printf("%d\n", sizeof(a[0] + 1));//4   第一个数组的第二个元素
-	//printf("%d\n", sizeof(*(a[0] + 1)));//4   第一个数组的第二个元素
-	//printf("%d\n", sizeof(a + 1));//4
-	//printf("%d\n", sizeof(*(a + 1)));//16
-	//printf("%d\n", sizeof(&a[0] + 1));//4
-	//printf("%d\n", sizeof(*(&a[0] + 1)));//16  
-	//printf("%d\n", sizeof(*a));//16   第一个数组 
-	//printf("%d\n", sizeof(a[3]));//16  
+	int a[3][4] = { 0 };
+	printf("%d\n", sizeof(a));//48  3*4*4
+	printf("%d\n", sizeof(a[0][0]));//4  第一个数组的第一个元素
+	printf("%d\n", sizeof(a[0]));//16   第一个数组    
+	printf("%d\n", sizeof(a[0] + 1));//4   第一个数组的第二个元素
+	printf("%d\n", sizeof(*(a[0] + 1)));//4   第一个数组的第二个元素
+	printf("%d\n", sizeof(a + 1));//4
+	printf("%d\n", sizeof(*(a + 1)));//16
+	printf("%d\n", sizeof(&a[0] + 1));//4
+	printf("%d\n", sizeof(*(&a[0] + 1)));//16  
+	printf("%d\n", sizeof(*a));//16   第一个数组 
+	printf("%d\n", sizeof(a[3]));//16  
 
 	//char *p = "abcdef";
 	//printf("%d\n", sizeof(p));//4  字符串首元素地址
@@ -150,9 +152,9 @@ void bubble(void *arr, int count, int size, int cmp(void *, void *))
 	//printf("%d\n", sizeof(&a + 1));//4  下一个数组的地址
 	//printf("%d\n", sizeof(&a[0]));//4   第一个元素的地址
 	//printf("%d\n", sizeof(&a[0] + 1));//4  第二个元素的地址
-	/*system("pause");
+	system("pause");
 	return 0;
-}*/
+}
 //int main()
 //{
 //	int arr[] = { 2, 5, 7, 2, 1, 0, 9, 34, 21 };
