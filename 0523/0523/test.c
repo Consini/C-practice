@@ -26,13 +26,19 @@
 //	}
 //	return dst;
 //}
-struct S3
+struct S1
 {
-	double d;
-	char c;
+	char c1;
+	char c2;
 	int i;
 };
-//练习4-结构体嵌套问题
+
+struct S3
+{
+	int d;
+	char c;
+	int i;
+};//12 -->4
 struct S4
 {
 	char c1;
@@ -42,7 +48,8 @@ struct S4
 
 int main()
 {
-	printf("%d\n", sizeof(struct S4));
+	printf("%d\n", sizeof(struct S1));
+	/*printf("%d\n", sizeof(struct S4));*/
 
 	//char *src = "hello bit!";
 	//char dst[32];
