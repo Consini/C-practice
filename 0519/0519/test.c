@@ -113,7 +113,7 @@ int main()
 
 
 
-
+#if 0
 //ÑîÊÏ¾ØÕó
 #include<stdio.h>
 #include<stdlib.h>
@@ -172,3 +172,4 @@ int main()
 	system("pause");
 	return 0;
 }
+#endif
