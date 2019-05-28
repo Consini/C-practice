@@ -1,8 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
 #include<stdlib.h>
-#define ROW 4
-#define COL 4
+#define ROW 6
+#define COL 5
 void show(int(*a)[COL], int row, int col)
 {
 	int i = 0;
