@@ -54,11 +54,34 @@ void menu()
 	printf("---------------------------------------\n");
 	printf("--  1.Show      2.Add       3.Del    --\n");
 	printf("--  4.Mod       5.Search    6.Sort   --\n");
-	printf("--  7.Clear     8.Save      9.Exit   --\n");
+	printf("--  7.Clear     8.Save               --\n");
 	printf("---------------------------------------\n");
 	printf("Please Enter Your Select:>");
 }
-void InitContact(contact_pp ctpp)
+int InitContactFile(contact_pp ctpp,FILE *fp)
+{
+	contact_p p = (contact_p)malloc(sizeof(contact_t));
+	if (p){
+		fread(p, sizeof(contact_t), 1, fp);
+		int _cap = p->cap;
+		int size = sizeof(contact_t)+p->cap*sizeof(person_t);
+			contact_p p1 = (contact_p)realloc(p, size);
+		if (p1){
+			p = p1;
+			fread(p->list, p->cap*sizeof(person_t),1,fp);
+			*ctpp = p;
+			return 1;
+		}
+		else{
+			return 0;
+		}
+	}
+	else{
+		return 0;
+	}
+}
+
+void InitContactDefault(contact_pp ctpp)
 {
 	*ctpp = malloc(sizeof(contact_t)+sizeof(person_t)*LIST_DEFAULT);
 	if (NULL == *ctpp){
@@ -177,4 +200,26 @@ void ClearPerson(contact_pp ctpp)
 	(*ctpp)->size = 0;
 	printf("Clear Success!\n");
 	return;
+}
+void Save(contact_p ct)
+{
+	FILE *fp = fopen(CT_FILE, "wb");
+	if (NULL == fp){
+		printf("Fopen Erroe!\n");
+		return;
+	}
+	fwrite(ct, sizeof(contact_t)+sizeof(person_t)*ct->cap, 1, fp);
+	fclose(fp);
+}
+int Load(contact_pp ctpp)
+{
+	FILE *fp = fopen(CT_FILE, "rb");
+	if (NULL == fp){
+		printf("Init Contact Default!\n");
+		InitContactDefault(ctpp);
+		return 0;
+	}
+	int ret = InitContactFile(ctpp, fp);
+	fclose(fp);
+	return ret;
 }

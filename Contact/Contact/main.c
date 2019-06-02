@@ -1,12 +1,11 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include "contact.h"
-
 int main()
 {
 	int select = 0;
 	volatile int quit = 0;//保持内存的可见性
 	contact_p ct;
-	InitContact(&ct);
+	Load(&ct);
 	while (!quit){
 		menu();
 		scanf("%d",&select);
@@ -33,11 +32,8 @@ int main()
 			ClearPerson(&ct);
 			break;
 		case 8:
-			//Save();
-			break;
-		case 9:
-			//Exit();
-			printf("Exit!\n");
+			Save(ct);
+			printf("Save!\n");
 			quit = 1;
 			break;
 		default:

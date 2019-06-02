@@ -14,6 +14,8 @@
 #define LIST_DEFAULT 1//列表中人的个数
 #define INC_SIZE 1//扩容的长度
 
+#define CT_FILE "contact.bin"
+
 typedef struct person{
 	char name[NAME_SIZE];
 	char sex;
@@ -29,7 +31,7 @@ typedef struct contact{
 }contact_t,*contact_p,**contact_pp;
 
 void menu();
-void InitContact(contact_pp ctpp);//初始化
+void InitContactDefault(contact_pp ctpp);//初始化
 void AddPerson(contact_pp ctpp);//增加联系人
 void DelPerson(contact_pp ctpp);//删除联系人
 void SearchPerson(contact_p ct);//查找联系人
@@ -37,7 +39,7 @@ void ModPerson(contact_pp ctpp);//修改联系人
 void ClearPerson(contact_pp ctpp);//清空联系人
 void SortContact(contact_p ct);//排序
 void ShowContact(contact_p ct);//显示通讯录
-void Save();//保存
-void Load();//加载
+void Save(contact_p ct);//保存
+int Load(contact_pp ctpp);//加载
 
 #endif
