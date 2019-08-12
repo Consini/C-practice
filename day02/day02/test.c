@@ -5,11 +5,10 @@ int Count_One_Bits(unsigned int n)
 {
 	int num = 0;
 	for (int i = 0; i < 32; i++){
-		if ((n >> 1 & 1) == 1)//将数字逻辑右移i位，&按位与
+		if ((n >> i & 1) == 1)//将数字逻辑右移i位，&按位与
 		{
 			num++;
 		}
-		n = n >> 1;
 	}
 	return num;
 }
