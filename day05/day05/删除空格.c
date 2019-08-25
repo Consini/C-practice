@@ -18,7 +18,7 @@ char* Trim1(char *a){
 	return p1;
 }
 
-char* Trim(char *a){
+char* Trim2(char *a){
 	char *end, *p1, *p2;
 	int len;
 	p1 = a;
