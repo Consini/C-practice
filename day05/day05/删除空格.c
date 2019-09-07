@@ -3,7 +3,7 @@
 #include<string.h>
 #include<stdlib.h>
 #include<ctype.h>
-//ɾ����β�ո�
+//É¾³ýÊ×Î²¿Õ¸ñ
 char* Trim1(char *a){
 	char *p1, *p2;
 	p1 = a;
